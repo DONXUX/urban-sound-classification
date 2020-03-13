@@ -22,6 +22,9 @@ def parse_audio_files(filenames):
     i = 0
     for fn in filenames:
         try:
+            sound_class = int(fn.split('/')[2].split('\\')[1].split('-')[1])
+            if sound_class == 0 or sound_class == 9 or sound_class == 2 or sound_class == 4:
+                continue
             mfccs, chroma, mel, contrast, tonnetz = extract_feature(fn)
             ext_features = np.hstack([mfccs, chroma, mel, contrast, tonnetz])
             y_col = int(fn.split('/')[2].split('\\')[1].split('-')[1])
@@ -51,3 +54,4 @@ for i in range(9):
     #         print('error occured')
     #         break
     np.savez('urban_sound_%d' % i, X=X, y=y, groups=groups)
+    print('urban_sound_%d 저장' % i)
