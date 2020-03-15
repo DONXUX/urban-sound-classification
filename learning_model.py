@@ -26,15 +26,15 @@ X_test = tf.reshape(X_test, [-1, 1, n_dim, 1])
 # CNN 모델 구축
 model = tf.keras.Sequential([
     # 레이어 1
-    tf.keras.layers.Conv2D(50, (1, 5), activation='relu', padding='same', input_shape=(1, n_dim, 1)),
+    tf.keras.layers.Conv2D(64, (1, 5), activation='relu', padding='same', input_shape=(1, n_dim, 1)),
     tf.keras.layers.MaxPooling2D(pool_size=(1, 2), strides=2),
 
     # 레이어 2
-    tf.keras.layers.Conv2D(100, (1, 5), activation='relu', padding='same'),
+    tf.keras.layers.Conv2D(128, (1, 5), activation='relu', padding='same'),
     tf.keras.layers.MaxPooling2D(pool_size=(1, 2), strides=2),
 
     # 레이어 3
-    tf.keras.layers.Conv2D(100, (1, 5), activation='relu', padding='same'),
+    tf.keras.layers.Conv2D(128, (1, 5), activation='relu', padding='same'),
     tf.keras.layers.MaxPooling2D(pool_size=(1, 2), strides=2),
 
     # 출력 정보 1차원 변환
