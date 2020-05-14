@@ -14,7 +14,7 @@ X_sub, X_test, y_sub, y_test = train_test_split(X_data, y_data, test_size=0.2)
 X_train, X_val, y_train, y_val = train_test_split(X_sub, y_sub, test_size=0.2)
 
 # 텐서플로우 모델 생성
-training_epochs = 10
+training_epochs = 5
 n_dim = 193
 n_classes = 9
 
@@ -41,7 +41,7 @@ model = tf.keras.Sequential([
     tf.keras.layers.Flatten(),
 
     # 출력 레이어
-    tf.keras.layers.Dense(100, activation='sigmoid'),
+    tf.keras.layers.Dense(128, activation='sigmoid'),
     tf.keras.layers.Dense(n_classes, activation='softmax')
 ])
 
